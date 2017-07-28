@@ -259,4 +259,10 @@ index_row_coder_task:
     - matrix
   status: prototype
   description: 'Code a matrix row.'
-
+browse_specimens_task_task:
+  hub: true
+  name: 'Browse specimens by species and gene name'
+  related:
+  categories:
+  status: prototype
+  description: 'Browse specimens by the species X and with attached sequences of gene Y'

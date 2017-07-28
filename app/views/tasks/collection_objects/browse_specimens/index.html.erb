@@ -1,0 +1,17 @@
+<h1 class="task_header">Browse specimens by species X with attach sequences of gene name Y</h1>
+
+<div id="browse-view">
+  <div>
+  <%= form_tag(browse_specimens_task_task_url, method: "get") do %>
+    <%= render("select_otu_facet") %>
+    <%= label_tag(:gene_name, "Gene name") %>
+    <%= text_field_tag(:gene_name, @gene_name) %>
+    <%= submit_tag("Submit" ) %>
+  <% end %>
+  </div>
+  <div>
+    <% @specimens.each do |specimen| %>
+      <%= object_link(specimen) %>
+    <% end %>
+  </div>
+</div>

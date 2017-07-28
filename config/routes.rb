@@ -589,6 +589,10 @@ TaxonWorks::Application.routes.draw do
     end
 
     scope :collection_objects do
+      scope :browse_specimens, controller: 'tasks/collection_objects/browse_specimens' do
+        get 'index', as: 'browse_specimens_task_task'
+      end
+
       scope :browse, controller: 'tasks/collection_objects/browse' do
         get 'index', as: 'browse_collection_objects_task'
       end
