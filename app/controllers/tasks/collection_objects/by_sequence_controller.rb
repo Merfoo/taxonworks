@@ -1,4 +1,4 @@
-class Tasks::CollectionObjects::BrowseSpecimensController < ApplicationController
+class Tasks::CollectionObjects::BySequenceController < ApplicationController
   include TaskControllerConfiguration
 
   # GET
