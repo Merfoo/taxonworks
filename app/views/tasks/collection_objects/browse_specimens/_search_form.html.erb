@@ -1,0 +1,21 @@
+<div class="panel content">
+  <div class="content">
+    <%= form_tag(browse_specimens_task_task_url, method: "get") do %>
+      <div>
+        <div class="filter_facet flex-separate middle title-filter-categories">
+          <span class="uppercase">Select otu</span>
+        </div>
+        <%= render("select_otu") %>
+      </div>
+      <br>
+      <div>
+        <div class="filter_facet flex-separate middle title-filter-categories">
+          <span class="uppercase">Select gene name</span>
+        </div>
+        <%= text_field_tag(:gene_name, @gene_name) %>
+      </div>
+      <br>
+      <%= submit_tag("Submit" ) %>
+    <% end %>
+  </div>
+</div>

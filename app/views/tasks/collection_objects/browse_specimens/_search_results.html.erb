@@ -1,0 +1,8 @@
+<div class="panel content">
+  <div class="content">
+    <h3>Specimens found: <%= @specimens.length %></h3>
+    <% @specimens.each do |specimen| %>
+      <%= object_link(specimen) %>
+    <% end %>
+  <div>
+</div>

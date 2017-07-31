@@ -4,15 +4,9 @@ class Tasks::CollectionObjects::BrowseSpecimensController < ApplicationControlle
   # GET
   def index
     otu_id = params[:otu][:id] if params[:otu]
-    @otu = nil
-    @otu_name = ""
+    @otu = Otu.find_by(id: otu_id) if otu_id.present?
     @gene_name = params[:gene_name]
     @specimens = []
-
-    if otu_id.present?
-      @otu = Otu.find_by(id: otu_id)
-     @otu_name = ApplicationController.helpers.otu_autocomplete_selected_tag(@otu)
-    end
 
     if @otu.present? && @gene_name.present?
       taxon_determinations = @otu.taxon_determinations
