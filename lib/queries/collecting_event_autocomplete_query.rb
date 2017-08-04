@@ -58,11 +58,11 @@ module Queries
     end
 
     def with_verbatim_trip_code
-      table[:verbatim_trip_code].eq_any(@terms)
+      table[:verbatim_trip_code].matches_any(@terms)
     end
 
     def with_verbatim_locality
-      table[:verbatim_locality].eq_any(@terms)
+      table[:verbatim_locality].matches_any(@terms)
     end
 
     def identified_by

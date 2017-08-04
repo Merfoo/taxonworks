@@ -589,6 +589,10 @@ TaxonWorks::Application.routes.draw do
     end
 
     scope :collection_objects do
+      scope :by_collecting_event, controller: 'tasks/collection_objects/by_collecting_event' do
+        get 'index', as: 'by_collecting_event_task'
+      end
+
       scope :by_sequence, controller: 'tasks/collection_objects/by_sequence' do
         get 'index', as: 'by_sequence_task'
       end

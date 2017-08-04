@@ -266,3 +266,10 @@ by_sequence_task:
   categories:
   status: prototype
   description: 'Browse specimens by the species X and with attached sequences of gene Y'
+by_collecting_event_task:
+  hub: true
+  name: 'Browse specimens by collecting event'
+  related:
+  categories:
+  status: prototype
+  description: 'View all specimens froma collecting event'

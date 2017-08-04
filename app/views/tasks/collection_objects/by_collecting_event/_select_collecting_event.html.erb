@@ -1,0 +1,11 @@
+<div>
+  <%= render(
+    '/workbench/elements/forms/ajax_select',
+    controller: '/collecting_events',
+    object: "collecting_event",
+    method: 'id',
+    tag_id: 'collecting_event_id',
+    size: 20, 
+    display: collecting_event_tag(@collecting_event)
+  ) -%><br>
+</div>
