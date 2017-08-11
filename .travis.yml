@@ -14,6 +14,7 @@ branches:
     - master
     - Rails-5.0
     - development
+    - maddison-lab-tasks
 addons:
   postgresql: "9.5"
   firefox: "53.0.3"

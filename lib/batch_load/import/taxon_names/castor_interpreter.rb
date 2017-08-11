@@ -92,6 +92,13 @@ module BatchLoad
               protonym_attributes[:original_subspecies] = original_protonym
             end
 
+            if row['original_name'] == 'Peryphus complanulus'
+              # TaxonNameClassification
+              name_nomen_classification = row['name_nomen_classification']
+              original_protonym.taxon_name_classifications.new(type: name_nomen_classification) if TaxonName::EXCEPTED_FORM_TAXON_NAME_CLASSIFICATIONS.include?(name_nomen_classification)
+              # byebug
+            end
+
             parse_result.objects[:original_taxon_name].push original_protonym
           end
 
