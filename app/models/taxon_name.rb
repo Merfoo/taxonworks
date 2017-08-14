@@ -1069,7 +1069,7 @@ class TaxonName < ActiveRecord::Base
   # return [Boolean] whether there is missaplication relationship
   def name_is_missapplied?
     TaxonNameRelationship.where_subject_is_taxon_name(self).
-      with_type_string('TaxonNameRelationship::Iczn::Invalidating::Usage::Misapplication').empty?
+      with_type_string('TaxonNameRelationship::Iczn::Invalidating::Misapplication').empty?
   end
 
   # return [String]
@@ -1087,7 +1087,7 @@ class TaxonName < ActiveRecord::Base
     b_sub = basionym.empty? ? nil : basionym.first.subject_taxon_name
 
     misapplication = TaxonNameRelationship.where_subject_is_taxon_name(self).
-      with_type_string('TaxonNameRelationship::Icn::Unaccepting::Usage::Misapplication')
+      with_type_string('TaxonNameRelationship::Icn::Unaccepting::Misapplication')
     m_obj = misapplication.empty? ? nil : misapplication.first.object_taxon_name
 
     t  = [self.author_string]
@@ -1111,7 +1111,7 @@ class TaxonName < ActiveRecord::Base
     ay = nil
     p = nil
 
-    misapplication = TaxonNameRelationship.where_subject_is_taxon_name(self).with_type_string('TaxonNameRelationship::Iczn::Invalidating::Usage::Misapplication')
+    misapplication = TaxonNameRelationship.where_subject_is_taxon_name(self).with_type_string('TaxonNameRelationship::Iczn::Invalidating::Misapplication')
 
     if self.type == 'Combination'
       c = self.protonyms_by_rank
@@ -1425,7 +1425,7 @@ class TaxonName < ActiveRecord::Base
   end
 
   def sv_two_unresolved_alternative_synonyms
-    r = taxon_name_relationships.includes(:source).order_by_oldest_source_first.with_type_array(TAXON_NAME_RELATIONSHIP_NAMES_INVALID)
+    r = taxon_name_relationships.includes(:source).order_by_oldest_source_first.with_type_array(TAXON_NAME_RELATIONSHIP_NAMES_SYNONYM)
     if r.to_a.count > 1
       if r.first.nomenclature_date.to_date == r.second.nomenclature_date.to_date
         soft_validations.add(:base, "Taxon has two alternative invalidating relationships with identical dates. To resolve ambiguity, add original sources to the relationships with different priority dates.")
